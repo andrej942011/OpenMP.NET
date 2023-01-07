@@ -30,6 +30,7 @@ namespace OpenMP
         internal uint num_threads;
         internal Action<int> omp_fn;
         volatile internal int threads_complete;
+        internal bool brack_loop;
 
         internal WorkShare(uint num_threads, Thread[] threads)
         {
@@ -43,6 +44,7 @@ namespace OpenMP
             this.chunk_size = 0;
             this.num_threads = num_threads;
             this.omp_fn = null;
+            this.brack_loop = false;
         }
     }
 

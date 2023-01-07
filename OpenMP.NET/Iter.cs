@@ -31,7 +31,13 @@ namespace OpenMP
             for (i = start; i < end; i++)
             {
                 omp_fn(i);
+                if (Init.ws.brack_loop)
+                {
+                    break;
+                }
             }
+
+            Init.ws.brack_loop = false;
 
             thr.curr_iter += (int)(Init.ws.num_threads * chunk_size);
         }

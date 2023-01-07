@@ -35,6 +35,11 @@ namespace OpenMP
             }
         }
 
+        public static void Brack()
+        {
+            Init.ws.brack_loop = true;
+        }
+
         public static void For(int start, int end, Action<int> action, Schedule schedule = Schedule.Static, uint? chunk_size = null)
         {
             FixArgs(start, end, schedule, ref chunk_size, GetNumThreads());
